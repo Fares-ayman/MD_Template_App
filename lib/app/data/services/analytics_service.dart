@@ -1,5 +1,8 @@
-import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:get/get.dart';
+
+ ///: TODO: Add firebase plugins 
+  /// and don`t forget to add google-services.json file to android/app/
+
+/* import 'package:get/get.dart';
 
 class AnalyticsServices extends GetxService {
   static AnalyticsServices? _instance;
@@ -11,3 +14,4 @@ class AnalyticsServices extends GetxService {
   FirebaseAnalyticsObserver getAnalyticsObserver() =>
       FirebaseAnalyticsObserver(analytics: _analytics);
 }
+ */

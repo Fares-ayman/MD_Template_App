@@ -1,9 +1,6 @@
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:universal_platform/universal_platform.dart';
 import 'app/routes/app_pages.dart';
 
 class MyApp extends StatelessWidget {
@@ -26,14 +23,17 @@ class MyApp extends StatelessWidget {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  if (!UniversalPlatform.isWeb) {
+
+  ///: TODO: Add firebase plugins
+  /// and don`t forget to add google-services.json file to android/app/
+  /* if (!UniversalPlatform.isWeb) {
     if (!kReleaseMode) {
       FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
     } else {
       FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
     }
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
-  }
+  } */
   await ScreenUtil.ensureScreenSize();
   const environment = 'prod';
   runApp(const MyApp(
