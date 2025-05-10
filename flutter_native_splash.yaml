@@ -6,25 +6,25 @@ flutter_native_splash:
   ios: true
   web: true
   # back ground image
-  background_image: "assets/background.png"
+  background_image: "assets/images/background.png"
   # logo image (in center)
-  image: "assets/logo.png"
+  image: "assets/images/logo.png"
   # branding image (text image in bottom)
-  branding: "assets/branding.png"
+  branding: "assets/images/branding.png"
   # back ground color
   color: "#d4e4ed"
   # dark mode back ground image
-  background_image_dark: "assets/background.png"
+  background_image_dark: "assets/images/background.png"
   # dark mode logo image (in center)
-  image_dark: "assets/logo.png"
+  image_dark: "assets/images/logo.png"
   # dark mode branding image (text image in bottom)
-  branding_dark: "assets/branding.png"
+  branding_dark: "assets/images/branding.png"
 
   # for handle android 12+
   android_12:
     # dark mode back ground color
     color: "#d4e4ed"
     # dark mode logo image (in center)
-    image: "assets/logo.png"
+    image: "assets/images/logo.png"
     # dark mode branding image (text image in bottom)
-    branding: "assets/branding.png"
+    branding: "assets/images/branding.png"

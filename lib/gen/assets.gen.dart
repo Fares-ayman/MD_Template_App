@@ -9,17 +9,28 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/background.png
+  AssetGenImage get background =>
+      const AssetGenImage('assets/images/background.png');
+
+  /// File path: assets/images/branding.png
+  AssetGenImage get branding =>
+      const AssetGenImage('assets/images/branding.png');
+
+  /// File path: assets/images/logo.png
+  AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [background, branding, logo];
+}
+
 class Assets {
   const Assets._();
 
-  static const AssetGenImage background = AssetGenImage(
-    'assets/background.png',
-  );
-  static const AssetGenImage branding = AssetGenImage('assets/branding.png');
-  static const AssetGenImage logo = AssetGenImage('assets/logo.png');
-
-  /// List of all assets
-  static List<AssetGenImage> get values => [background, branding, logo];
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
 class AssetGenImage {
