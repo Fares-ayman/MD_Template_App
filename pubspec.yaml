@@ -68,6 +68,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   get: ^4.7.2
   flutter_native_splash: ^2.4.6
+  flutter_launcher_icons: ^0.14.3
 
 dev_dependencies:
   flutter_test:
@@ -120,3 +121,14 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+# when change any images, you need to run this command
+# (dart run flutter_launcher_icons)
+flutter_launcher_icons:
+  ios: true
+  remove_alpha_ios: true
+  android: "launcher_icon"
+  image_path_ios: "assets/logo.png"
+  image_path: "assets/logo.png" # Path to your icon image
+  adaptive_icon_foreground: "assets/logo.png" # Path to foreground image
+  adaptive_icon_background: "#162B45" # Change this to your desired color code
