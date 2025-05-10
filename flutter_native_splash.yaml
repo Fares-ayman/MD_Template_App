@@ -1,0 +1,30 @@
+# when change any images, you need to run this command
+# (dart run flutter_native_splash:create --path=flutter_native_splash.yaml)
+
+flutter_native_splash:
+  android: true
+  ios: true
+  web: true
+  # back ground image
+  background_image: "assets/background.png"
+  # logo image (in center)
+  image: "assets/logo.png"
+  # branding image (text image in bottom)
+  branding: "assets/branding.png"
+  # back ground color
+  color: "#d4e4ed"
+  # dark mode back ground image
+  background_image_dark: "assets/background.png"
+  # dark mode logo image (in center)
+  image_dark: "assets/logo.png"
+  # dark mode branding image (text image in bottom)
+  branding_dark: "assets/branding.png"
+
+  # for handle android 12+
+  android_12:
+    # dark mode back ground color
+    color: "#d4e4ed"
+    # dark mode logo image (in center)
+    image: "assets/logo.png"
+    # dark mode branding image (text image in bottom)
+    branding: "assets/branding.png"
