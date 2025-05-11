@@ -142,5 +142,9 @@ app.*.map.json
 .fvm/
 .fvmrc
 
+
 # TODO: ignore all files in the lib/prompts folder
 lib/prompts/*
+
+
+.cursor/
