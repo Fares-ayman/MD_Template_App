@@ -1,5 +1,5 @@
 class LocalKeys {
   const LocalKeys._();
 
-  // static const String kSeeMore = "kSeeMore";
+  static const String kErrorOccured = "ErrorOccured";
 }
