@@ -1,0 +1,35 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+please do this promps for modified staged changes files in source control and the files doesn't match these steps, please fix this 
+
+- Listing the currently staged/modified files in your source control using this command "git diff --name-only --cached"
+- and when get files applay this steps on it.
+
+Steps: 
+
+1. translation
+check all in staged changes
+don`t use text or dirty text in only Text Widget (Text("")) should but it in locals file (local_keys.dart) and translate it 
+
+2. api parameters 
+check providers in staged changes
+don`t use hardcoded text in providers in (body or query parameters) in map({}) should but it in api parameters file (api_parameters.dart) as a const  and use it  
+if found in file use it dirctly
+
+
+3. route parameters 
+check controllers in staged changes
+don`t use hardcoded text in controllers in parametars or argument in any get route (Get.) should but it in route parameters file (route_parameters.dart) as a const  and use it  
+if found in file use it dirctly
+
+4. test keys 
+check all widgets in staged changes
+don`t use hardcoded text in widgets (key: const ValueKey(''),)  should but it in test keys file (test_keys.dart) as a const  and use it  
+if found in file use it dirctly
+
+** Very Important Note
+dont create any additional files , modify only
+don`t forget const 
