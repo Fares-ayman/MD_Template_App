@@ -1,0 +1,81 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+please do this promps for modified staged changes files in source control and the files doesn't match these steps, please add todo comment explain what the developer should do here 
+
+- Listing the currently staged/modified files in your source control using this command "git diff --name-only --cached"
+- and when get files applay this steps on it.
+
+Steps: 
+
+1. Code Readability
+Code should be clean, well-formatted, and easy to understand.
+
+Follow naming conventions for classes, methods, and variables.
+
+Use meaningful commit messages describing changes clearly.
+
+2. Performance
+Check for potential performance issues such as unnecessary builds, inefficient loops, and memory leaks.
+please seperate it into new file 
+
+if found 
+widgets function that return widget like this (Widget functionName() {}) 
+ or 
+widget class (class WidgetName extends StatelessWidget {}) in same file with widget class 
+
+
+Ensure controllers are properly disposed when not needed (use Get.delete() where necessary).
+
+3. Separation of Concerns (GetX-Specific)
+UI should not contain business logic; only handle rendering and user interactions.
+
+Controllers should handle state management using Rx variables and Obx.
+
+Widgets should be stateless unless necessary.
+
+4. Dependency Injection (DI) Best Practices
+Use Get.put(), Get.lazyPut(), or Get.find() for dependency management.
+
+Ensure that controllers are properly managed and disposed when no longer in use.
+
+5. Routing Best Practices
+Use Get.to(), Get.off(), Get.offAll() for navigation instead of Navigator.push().
+
+Avoid hardcoded route names; use named routes defined in the route file.
+
+6. Clean Code Aspects
+Proper naming conventions for namespaces and package names.
+
+Ensure .gitignore is configured correctly to prevent unnecessary files from merging.
+
+Refactor repeated logic into utils/ for better maintainability.
+
+Divide large widgets into smaller reusable components.
+
+Store shared widgets inside globalwidgets/ directory.
+
+Meaningful class and variable names should be used.
+
+Avoid pushing print statements or commented-out code unless documented.
+
+Use enums instead of hardcoded texts to ensure consistency and avoid magic strings.
+
+Ensure proper exception handling to gracefully handle errors and prevent crashes.
+
+7. Documentation
+New features or changes must be properly documented.
+
+8. Testing
+if the file don`t have any reference test file write a todo comment 
+Code should be covered by unit tests and widget tests.
+
+9. Dirty text
+don`t use text or dirty text in only Text Widget (Text("")) should but it in locals
+
+
+** Very Important Note
+dont do and change , add the todo comments only 
+
