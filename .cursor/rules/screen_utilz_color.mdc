@@ -23,7 +23,10 @@ any color not found in AppColor file  (app_colors.dart) set this value in AppCol
 3. padding
 any padding value not found in AppPadding class in (app_values.dart file) set this value in AppPadding class in (app_values.dart file) and use it  
 
+3. margin
+any margin value not found in AppMargin class in (app_values.dart file) set this value in AppMargin class in (app_values.dart file) and use it  
+
 ** Very Important Note
 dont create any additional files , modify only
 don`t forget const 
-use the same value for padding and color 
+use the same value for padding, margin and color 
