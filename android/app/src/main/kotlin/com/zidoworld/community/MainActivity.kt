@@ -1,4 +1,4 @@
-package com.MD_Template_app.m_d_template_app
+package com.zidoworld.community
 
 import io.flutter.embedding.android.FlutterActivity
 

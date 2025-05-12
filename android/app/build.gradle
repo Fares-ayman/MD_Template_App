@@ -29,7 +29,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace = "com.MD_Template_app.m_d_template_app"
+    namespace = "com.zidoworld.community"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -44,7 +44,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.MD_Template_app.m_d_template_app"
+        applicationId "com.zidoworld.community"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdk = 21
@@ -59,11 +59,11 @@ android {
         dev {
             dimension "environment"
             applicationIdSuffix ".dev"
-            resValue "string", "app_name", "MD Template Dev"
+            resValue "string", "app_name", "Zido Community Dev"
         }
         prod {
             dimension "environment"
-            resValue "string", "app_name", "MD Template"
+            resValue "string", "app_name", "Zido Community"
         }
     }
 
