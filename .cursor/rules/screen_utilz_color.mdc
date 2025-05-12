@@ -11,11 +11,14 @@ please do this promps for modified staged changes files in source control and th
 Steps: 
 
 1. screen Utils
+* use screen utils codebase *
 dont use any hight without .h 
 dont use any width without .w 
 dont use any fintsize or icon size without .sp 
 dont use any radius without .r 
 
+
 2. color
-dont use any color not found in AppColor file 
+any color not found in AppColor file  (app_colors.dart) please set it in file and use it  
+
 
