@@ -21,12 +21,8 @@ Use meaningful commit messages describing changes clearly.
 Check for potential performance issues such as unnecessary builds, inefficient loops, and memory leaks.
 please seperate it into new file 
 
-if found 
-widgets function that return widget like this (Widget functionName() {}) 
- or 
-widget class (class WidgetName extends StatelessWidget {}) in same file with widget class 
-
-
+dont use any widget class (class WidgetName extends StatelessWidget {}) in same file with widget class 
+dont use any widgets function that return widget like this (Widget functionName() {})
 Ensure controllers are properly disposed when not needed (use Get.delete() where necessary).
 
 3. Separation of Concerns (GetX-Specific)
@@ -75,7 +71,17 @@ Code should be covered by unit tests and widget tests.
 9. Dirty text
 don`t use text or dirty text in only Text Widget (Text("")) should but it in locals
 
+10. screen Utils
+dont use any hight without .h 
+dont use any width without .w 
+dont use any fintsize or icon size without .sp 
+dont use any radius without .r 
+
+11. color
+dont use any color not found in AppColor file 
+
 
 ** Very Important Note
 dont do and change , add the todo comments only 
+
 
