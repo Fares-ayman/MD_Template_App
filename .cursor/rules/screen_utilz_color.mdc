@@ -19,6 +19,7 @@ dont use any radius without .r
 
 
 2. color
-any color not found in AppColor file  (app_colors.dart) please set it in file and use it  
+any color not found in AppColor file  (app_colors.dart)
+set it in AppColor file  (app_colors.dart) and use it  
 
 
