@@ -1,0 +1,21 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+please do this promps for modified staged changes files in source control and the files doesn't match these steps, please fix this 
+
+- Listing the currently staged/modified files in your source control using this command "git diff --name-only --cached"
+- and when get files applay this steps on it.
+
+Steps: 
+
+1. screen Utils
+dont use any hight without .h 
+dont use any width without .w 
+dont use any fintsize or icon size without .sp 
+dont use any radius without .r 
+
+2. color
+dont use any color not found in AppColor file 
+
