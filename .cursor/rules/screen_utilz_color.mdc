@@ -22,3 +22,8 @@ dont use any radius without .r
 any color not found in AppColor file  (app_colors.dart) set this value in AppColor file  (app_colors.dart) and use it  
 
 
+
+** Very Important Note
+dont create any additional files , modify only
+
+
