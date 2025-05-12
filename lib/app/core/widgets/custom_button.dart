@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import '../values/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
@@ -8,6 +9,8 @@ class CustomButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final Color? color;
   final bool isDisabled;
+  final bool hasBorder;
+  final Color? textColor;
 
   const CustomButton({
     required Key key,
@@ -17,12 +20,13 @@ class CustomButton extends StatelessWidget {
     this.onPressed,
     this.color,
     this.isDisabled = false,
+    this.hasBorder = false,
+    this.textColor,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height,
       width: width,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -30,17 +34,27 @@ class CustomButton extends StatelessWidget {
           backgroundColor: (color ?? AppColors.mainButtonColor),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(40),
+            side: hasBorder
+                ? const BorderSide(
+                    color: AppColors.mainButtonColor,
+                    width: 2,
+                  )
+                : BorderSide.none,
           ),
-          minimumSize: Size(width ?? double.infinity, height ?? 56),
+          minimumSize: Size(width ?? double.infinity, 0),
         ),
         onPressed: isDisabled ? null : onPressed,
-        child: Text(
+        child: AutoSizeText(
           text,
-          style: const TextStyle(
-            color: Colors.white,
+          style: TextStyle(
+            color: textColor ?? Colors.white,
             fontSize: 16,
           ),
           textDirection: TextDirection.rtl, // For Arabic support
+          minFontSize: 12,
+          maxFontSize: 16,
+          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.center,
         ),
       ),
     );
