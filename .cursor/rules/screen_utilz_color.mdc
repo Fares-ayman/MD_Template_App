@@ -17,13 +17,12 @@ dont use any width without .w
 dont use any fintsize or icon size without .sp 
 dont use any radius without .r 
 
-
 2. color
 any color not found in AppColor file  (app_colors.dart) set this value in AppColor file  (app_colors.dart) and use it  
 
-
+3. padding
+any padding value not found in AppPadding class in (app_values.dart file) set this value in AppPadding class in (app_values.dart file) and use it  
 
 ** Very Important Note
 dont create any additional files , modify only
-
 
