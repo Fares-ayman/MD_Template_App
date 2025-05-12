@@ -11,7 +11,7 @@ please do this promps for modified staged changes files in source control and th
 Steps: 
 
 1. screen Utils
-* use screen utils codebase *
+* use screen utils codebase 
 dont use any hight without .h 
 dont use any width without .w 
 dont use any fintsize or icon size without .sp 
@@ -19,7 +19,6 @@ dont use any radius without .r
 
 
 2. color
-any color not found in AppColor file  (app_colors.dart)
-set it in AppColor file  (app_colors.dart) and use it  
+any color not found in AppColor file  (app_colors.dart) set this value in AppColor file  (app_colors.dart) and use it  
 
 
