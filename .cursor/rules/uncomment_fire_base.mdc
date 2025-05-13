@@ -10,7 +10,7 @@ Steps:
 1. uncomment in pubspec.yaml
 2. uncomment in android/build.gradle
 3. uncomment in android/app/build.gradle
-4. uncomment in main_dev.dart and main_prod.dart
+4. uncomment in main_common.dart
 5. uncomment in analytics_service.dart
 6. add google-services.json file to android/app/
 7. add GoogleService-Info.plist file to ios/Runner/
