@@ -17,5 +17,6 @@ dont use any widget class (class WidgetName extends StatelessWidget {}) in same 
 dont use any widgets function that return widget like this (Widget functionName() {})
 
 ** Very Important Note
-when seperate in new file please use it 
+when seperate in new file, please use it
+put new widgets files in widgets folder in view folder in same module 
 don`t forget const
