@@ -17,4 +17,4 @@ Steps:
 
 ** Very Important Note
 do this steps only don`t add any additional file
-create google service json empty files in android and ios 
+create google service json and GoogleService-Info.plist empty files in android and ios 
