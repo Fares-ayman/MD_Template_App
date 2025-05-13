@@ -65,8 +65,9 @@ Ensure proper exception handling to gracefully handle errors and prevent crashes
 New features or changes must be properly documented.
 
 8. Testing
+check controllers and widgets in staged changes
 if the file don`t have any reference test file write a todo comment 
-Code should be covered by unit tests and widget tests.
+Code should be covered by unit tests for controllers and widget tests for widgets.
 
 9. Dirty text
 don`t use text or dirty text in only Text Widget (Text("")) should but it in locals
