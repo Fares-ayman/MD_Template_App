@@ -1,94 +1,111 @@
 import 'dart:async';
+import 'dart:developer';
+import 'dart:io';
 
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/request/request.dart';
-import 'package:get/get_connect/http/src/status/http_status.dart';
+import '../services/internet_connectivity_service.dart';
 
 class AppProvider extends GetConnect {
   final RxBool _networkUnAvailable = false.obs;
+  final RxBool isDialogOpen = false.obs;
+  final RxBool isServerDown = false.obs;
+  InternetConnectivityService internetConnectivityService =
+      Get.find<InternetConnectivityService>();
+  Worker? worker;
 
   @override
   void onInit() {
-    httpClient.baseUrl = baseUrl;
     httpClient.maxAuthRetries = 1;
-    httpClient.defaultContentType = 'application/form-data';
+
+    httpClient.defaultContentType = 'application/json';
     httpClient.followRedirects = true;
+
+    httpClient.timeout = const Duration(seconds: 30);
     httpClient.addRequestModifier<dynamic>((request) => updateHeaders(request));
-    httpClient.timeout = const Duration(seconds: 10);
-    // Initialize Network state listener
-    ever(_networkUnAvailable, networkStatusChanged);
+    httpClient.addAuthenticator<dynamic>((request) async {
+      /// TODO: Add accessToken for all requests
+      /*  String? accessToken;
+
+      try {
+        accessToken = await Get.find<SecureStorageService>()
+            .getJWTAccessTokenFromSecureStorage();
+        log(accessToken ?? 'not Found');
+        // ignore: empty_catches
+      } catch (e) {
+        log(e.toString());
+      }
+
+      if (accessToken != null && accessToken.isNotEmpty) {
+        request.headers[HttpHeaders.authorizationHeader] =
+            "Bearer $accessToken";
+      } */
+      return request;
+    });
+
+    worker = ever(_networkUnAvailable, networkStatusChanged);
   }
 
-  // Header:-----------------------------------------------------------------------
-  Future<Map<String, dynamic>?> getHeaders() async {
-    /// TODO: Add token in header  for all requests
-    /* final User? user = FirebaseAuth.instance.currentUser;
-    final String? token = await user?.getIdToken();
-    return token != null
-        ? {
-            "Authorization-Firebase": token,
-            "X-Authorization-Firebase": token,
-            'Connection': 'keep-alive'
-          }
-        : null; */
-    return {};
+  @override
+  void onClose() {
+    worker?.dispose();
+    dispose();
+    super.onClose();
   }
 
   void networkStatusChanged(bool networkUnAvailable) {
     if (networkUnAvailable == true) {
-      /// TODO: Open the Network error dialog in case no network available
-
-      /* showDialog(
-        context: Get.context!,
-        builder: (ctx) => Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: CustomHomeDialog(
-            isUrlImage: false,
-            assetImageSvg: AppAssets.KloseConnectionSvg,
-            title: LocalKeys.kSorryNetworkErrorOccurred.tr,
-            titleTextStyle: AppTextStyles.headlinesText.copyWith(
-              fontSize: 22.sp(Get.context!),
-              color: AppColors.blueblack,
-            ),
-            buttonName: LocalKeys.kReconnect.tr,
-            tap: () {
-              Get.back(result: true);
-
-              shouldRetry();
-            },
-          ),
-        ),
-      ); */
+      isDialogOpen.value = true;
+      // Open the Network error dialog in case no network available
+      internetConnectivityService.showNoInternetDialog();
     } else {
-      if (Get.isDialogOpen != null && Get.isDialogOpen == true) {
-        // Get.back(closeOverlays: true); // Closes the Network Dialog
+      if (isDialogOpen.value) {
+        isDialogOpen.value = false;
+        Get.back(); // Closes the Network Dialog
       }
     }
   }
 
   FutureOr<Request<dynamic>> updateHeaders(Request<dynamic> request) async {
-    request.headers['Accept'] = 'application/json';
+    request.headers['Content-Type'] = 'application/json';
+    request.headers['Accept'] = '*/*';
     request.headers['X-Requested-With'] = 'XMLHttpRequest';
 
-    /*  final User? user = FirebaseAuth.instance.currentUser;
-    final String? token = await user?.getIdToken();
-    if (token != null) {
-      request.headers['Authorization-Firebase'] = token;
-      request.headers['X-Authorization-Firebase'] = token;
-      request.headers['Connection'] = 'keep-alive';
+    /// TODO: Add token in header for all requests
+
+    /*  String? accessToken;
+
+    try {
+      accessToken = await Get.find<SecureStorageService>()
+          .getJWTAccessTokenFromSecureStorage();
+      log(accessToken ?? 'not Found');
+      // ignore: empty_catches
+    } catch (e) {
+      log(e.toString());
+    }
+
+    if (accessToken != null && accessToken.isNotEmpty) {
+      request.headers[HttpHeaders.authorizationHeader] = "Bearer $accessToken";
     } */
 
     return request;
   }
 
   Future<Response<dynamic>> handleNetworkError(
-      Future<Response<dynamic>> response) {
-    response.then((value) {
-      return _networkUnAvailable.value = (value.hasError &&
+    Future<Response<dynamic>> response,
+  ) async {
+    _networkUnAvailable.value =
+        !(await internetConnectivityService.checkInternetConnectivity());
+
+    await response.then((value) {
+      _networkUnAvailable.value = (value.hasError &&
           (value.statusCode == null ||
               value.statusCode == HttpStatus.requestTimeout));
-    });
 
+      log("Network Availability: ${value.statusCode}");
+      log("Network Availability: ${value}");
+      log(response.toString());
+    });
     return response;
   }
 
@@ -96,8 +113,7 @@ class AppProvider extends GetConnect {
     if (_networkUnAvailable.value == false) {
       return false; // return instantly if network is already available => should not retry
     }
-    await Future.delayed(
-        const Duration(seconds: 15)); // Wait for appropriate time
+    await Future.delayed(const Duration(seconds: 10));
     return _networkUnAvailable.value;
   }
 }
