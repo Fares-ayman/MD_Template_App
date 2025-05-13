@@ -1,0 +1,21 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+please do this promps for modified staged changes files in source control and the files doesn't match these steps, please fix this 
+
+- Listing the currently staged/modified files in your source control using this command "git diff --name-only --cached"
+- and when get files applay this steps on it.
+
+Steps: 
+
+1. seperate widgets
+check widgets in staged changes
+please seperate it into new file 
+dont use any widget class (class WidgetName extends StatelessWidget {}) in same file with widget class 
+dont use any widgets function that return widget like this (Widget functionName() {})
+
+** Very Important Note
+when seperate in new file please use it 
+don`t forget const
