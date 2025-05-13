@@ -14,10 +14,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: "Application ${environment.toUpperCase()}",
-      initialRoute: AppPages.INITIAL,
-      getPages: AppPages.routes,
+    return ScreenUtilInit(
+      designSize: const Size(393, 852),
+      builder: (context, child) {
+        return GetMaterialApp(
+          title: "Application ${environment.toUpperCase()}",
+          initialRoute: AppPages.INITIAL,
+          getPages: AppPages.routes,
+        );
+      },
     );
   }
 }
