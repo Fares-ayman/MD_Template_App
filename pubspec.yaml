@@ -115,7 +115,7 @@ flutter_launcher_icons:
   ios: true
   remove_alpha_ios: true
   android: "launcher_icon"
-  image_path_ios: "assets/images/logo.png"
-  image_path: "assets/images/logo.png" # Path to your icon image
-  adaptive_icon_foreground: "assets/images/logo.png" # Path to foreground image
-  adaptive_icon_background: "#162B45" # Change this to your desired color code
+  image_path_ios: "assets/images/logo.jpg"
+  image_path: "assets/images/logo.jpg" # Path to your icon image
+  adaptive_icon_foreground: "assets/images/logo.jpg" # Path to foreground image
+  # adaptive_icon_background: "#162B45" # Change this to your desired color code
