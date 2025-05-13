@@ -21,7 +21,7 @@ dependencies:
   #: 4- uncomment in main_dev.dart and main_prod.dart
   #: 5- uncomment in analytics_service.dart
   #: 6- add google-services.json file to android/app/
-  #: 7- add google-services.json file to ios/Runner/
+  #: 7- add GoogleService-Info.plist file to ios/Runner/
 
   # # Firebase
   # firebase_core: ^3.8.0

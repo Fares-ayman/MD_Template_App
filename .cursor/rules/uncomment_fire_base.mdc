@@ -1,0 +1,20 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+please do this promps for files i mentioned below 
+
+Steps: 
+
+1. uncomment in pubspec.yaml
+2. uncomment in android/build.gradle
+3. uncomment in android/app/build.gradle
+4. uncomment in main_dev.dart and main_prod.dart
+5. uncomment in analytics_service.dart
+6. add google-services.json file to android/app/
+7. add GoogleService-Info.plist file to ios/Runner/
+
+** Very Important Note
+do this steps only don`t add any additional file
+create google service json empty files in android and ios 
