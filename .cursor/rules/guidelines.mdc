@@ -80,6 +80,22 @@ dont use any radius without .r
 11. color
 dont use any color not found in AppColor file 
 
+12. api parameters 
+check providers in staged changes
+don`t use hardcoded text in providers in (body or query parameters) in map({}) should but it in api parameters file (api_parameters.dart) as a const  and use it  
+if found in file use it dirctly
+
+
+13. route parameters 
+check controllers in staged changes
+don`t use hardcoded text in controllers in parametars or argument in any get route (Get.) should but it in route parameters file (route_parameters.dart) as a const  and use it  
+if found in file use it dirctly
+
+14. test keys 
+check all widgets in staged changes
+don`t use hardcoded text in widgets (key: const ValueKey(''),)  should but it in test keys file (test_keys.dart) as a const  and use it  
+if found in file use it dirctly
+
 
 ** Very Important Note
 dont do and change , add the todo comments only 
