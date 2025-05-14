@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       designSize: const Size(393, 852),
       builder: (context, child) {
         return GetMaterialApp(
-          title: "Application ${Flavor.flavorName}",
+          title: Flavor.flavorName,
           debugShowCheckedModeBanner: false,
           initialRoute: AppPages.INITIAL,
           getPages: AppPages.routes,

@@ -3,12 +3,29 @@ description:
 globs: 
 alwaysApply: false
 ---
-please do this promps for files i mentioned below 
+Rule Name: Set Project Settings
+Description: Updates the project name, application ID, and bundle identifier across the project
 
-Steps: 
+Steps:
+1. Prompt the developer for a new project name, application ID, and whether to enable Firebase
+2. Update the 'name:' field in the pubspec.yaml file with the provided project name and modify in flavor name in flavors.dart file
+3. Update the applicationId in android/app/build.gradle
+4. Update the namespace in android/app/build.gradle
+5. Update MainActivity file This will require changing the folders names (folders in the MainActivity  path)
+Ex: com/oldname/app/MainActivity  ⇒ com/newname/app/MainActivity and delete old path and old MainActivity and modily in all files to use new MainActivity in new path
+6. Update the PRODUCT_BUNDLE_IDENTIFIER in ios/Runner/Info.plist and other iOS project files
+7. Ensure the project name follows Dart package naming conventions (lowercase, underscores)
+8. Ensure the application ID follows reverse domain name notation (e.g., com.company.appname)
+9. If Firebase integration is requested, run the uncomment_fire_base rule to enable Firebase features
 
-1. take from developerproject name and when developer set the project name in (name: )  in pubspec.yaml file
-
+Example Usage:
+@set_project_setting.mdc
+project name "my_new_project"
+application id "com.my_company.my_new_project"
+enable firebase "yes"
 
 ** Very Important Note
-do this steps only don`t add any additional file
+This rule updates configuration files only and does not create any additional files
+If Firebase is enabled, it will uncomment Firebase-related code and create empty configuration files
+delete old folders and old MainActivity
+don`t forget modify the PRODUCT_BUNDLE_IDENTIFIER in all ios folders
